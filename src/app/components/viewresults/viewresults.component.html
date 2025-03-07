@@ -1,0 +1,53 @@
+<main class="d-flex mt-3" >
+    
+    <div class="container ms-4 mt-4 " >
+    <div class=" py-1 bg-secondary mt-4 ">
+        <h5 class="mb-0 text-center"><strong> Generate  Student Score Sheets  </strong></h5>
+    </div>
+    <div class="mt-2" >
+    <!-- Name input -->
+     <div class=" card px-1">
+      <form  #examForm = "ngForm"  (ngSubmit)="onSubmit(examForm)" >
+    
+     <div class="row">
+    <div data-mdb-input-init class="col form-outline mt-1 mb-1">
+        <label class="form-label" for="form7Example1"> Exam Name </label>
+        <select  class="form-select border border-dark" name="class_select"  name="exams" [(ngModel)]= "exam"  >
+          <option *ngFor="let exam of exams ; let i = index" value={{exam.examId}}> {{exam.examTerm}}  {{exam.examName}} </option>
+              
+          </select>  
+      </div>
+      <div data-mdb-input-init class="col form-outline mt-1 mb-1">
+        <label class="form-label" for="form7Example1"> Form </label>
+        <select  class="form-select border border-dark" name="class_select" name="level" [(ngModel)]="level" (change)="onSelectChange($event)">
+          <option *ngFor="let lvl of levels ; let i = index" value={{lvl.levelId}}> {{lvl.levelName}} </option>
+          </select>  
+      </div>
+      <div data-mdb-input-init class="col form-outline mt-1 mb-1">
+        <label class="form-label" for="form7Example1"> Streams </label>
+        <select  class="form-select border border-dark" name="class_select" name="streams" [(ngModel)]="stream" >           
+          <option *ngFor="let strm of streams ; let i = index" value={{strm.stream_id}}> {{strm.stream_name}} </option>
+          </select>   
+      </div>
+     
+      <div data-mdb-input-init class="col form-outline mt-1 mb-1">
+        <button type="submit" class="btn btn-primary" style="margin-top: 2rem;" data-mdb-ripple-init> Generate </button>  
+      </div>     
+    
+    </div>   
+    
+</form>
+
+</div>
+    
+    
+    
+    
+      
+     
+    
+    </div>
+    </div>
+    </main>
+    
+

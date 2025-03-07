@@ -1,0 +1,166 @@
+<main class="d-flex mt-3" >
+    
+    <div class="container ms-4 mt-4 " >
+    <div class=" py-1 bg-secondary mb-1 mt-4 ">
+        <h5 class="mb-0 text-center"><strong> Add Students To School Register  </strong></h5>
+    </div>
+    <div class="text-uppercase text-info bg-dark" > 
+      <p *ngIf="message" >  {{message}} </p>
+    </div>
+    <div class=" card my-2 py-2 px-1" > 
+      <form  #studentForm = "ngForm" (ngSubmit)="onSubmit(studentForm)">
+        <div class="row mb-2">
+
+          <div class="col">
+            <!-- Name input -->
+            <div class="form-outline">
+              <label class="form-label" for="form8Example1">Adm No </label>
+              <input type="text" [(ngModel)] ="studDTO.studentId" name="admno" id="form8Example1" class="form-control border border-dark" />
+              
+            </div>
+          </div> 
+
+        <div class="col">
+          <!-- Name input -->
+          <div data-mdb-input-init class="form-outline">
+            <label class="form-label" for="form8Example1">First Name</label>
+            <input type="text" [(ngModel)] ="studDTO.firstName" name="fname" id="form8Example1" class="form-control border border-dark" />
+            
+          </div>
+        </div>
+        <div class="col">
+        
+          <div class="form-outline">
+            <label class="form-label" for="form8Example2">Last Name</label>
+            <input type="text" id="form8Example2" [(ngModel)] ="studDTO.lastName" name="lname" class="form-control border border-dark" />
+            
+          </div>
+        </div>
+      </div>   
+      
+      <div class="row pt-2">
+        <div class="col">
+          <!-- Name input -->
+          <div class="form-outline">
+            <label class="form-label" for="form8Example3">Class </label>
+            <select class="form-control border border-dark" name="class" [(ngModel)] ="studDTO.level"  (change)="onSelectChange($event)" >
+                <option *ngFor="let cls of classList" value="{{cls.levelId}}">  {{cls.levelName}} </option>
+                              
+              </select>
+            
+          </div>
+        </div>
+
+        <div class="col">
+          <!-- Name input -->
+          <div data-mdb-input-init class="form-outline">
+            <label class="form-label" for="form8Example4"> Stream </label>
+            <select data-mdb-select-init class="form-control border border-dark " name="stream" [(ngModel)] ="studDTO.stream" >
+              <option *ngFor="let strms of streamList" value="{{strms.stream_id}}">  {{strms.stream_name}} </option>
+                             
+              </select>
+            
+          </div>
+        </div>
+        <div class="col">
+          <!-- Email input -->
+          <div data-mdb-input-init class="form-outline">
+            <label class="form-label" for="form8Example5"> Date of Admission </label>
+            <input type="date" id="form8Example5" class="form-control border border-dark "name="doa" [(ngModel)] ="studDTO.dateOfAdmission"  />
+            
+          </div>
+        </div>
+      </div>  
+      
+      <div class="row mb-2 pt-3">
+        <div class="col">
+          <!-- Name input -->
+          <div data-mdb-input-init class="form-outline">
+            <label class="form-label" for="form8Example1"> Gender </label>
+            <select  class="form-control border border-dark " name="gender" [(ngModel)] ="studDTO.gender" >
+                <option value="1">Male </option>
+                <option value="2"> Female </option>                
+              </select>
+            
+          </div>
+        </div>
+        <div class="col">
+        
+          <div class="form-outline">
+            <label class="form-label" for="form8Example2">Date Of Birth</label>
+            <input type="date" id="form8Example2" name="dob" class="form-control border border-dark" [(ngModel)] ="studDTO.dateOfBirth"  />
+            
+          </div>
+        </div>
+        <div class="col">
+        
+            <div class="form-outline">
+              <label class="form-label" for="form8Example2"> Health Conditions (if Any) </label>
+              <input type="text" id="form8Example2" class="form-control border border-dark " name="health" [(ngModel)] ="studDTO.healthConditions" />
+              
+            </div>
+          </div>
+      </div>
+
+      <div class="row mb-2 pt-3">
+        <div class="col">
+          <!-- Name input -->
+          <div data-mdb-input-init class="form-outline">
+            <label class="form-label" for="form8Example1"> Parent's Name</label>
+            <input type="text" id="form8Example2" [(ngModel)] ="studDTO.parentName" name="pname" class="form-control border border-dark" />
+            
+          </div>
+        </div>
+        <div class="col">
+        
+          <div class="form-outline">
+            <label class="form-label" for="form8Example2">Home Contacts</label>
+            <input type="text" id="form8Example2" [(ngModel)] ="studDTO.parentNumber1"  name="cont1" class="form-control border border-dark" />
+            
+          </div>
+        </div>
+        <div class="col">
+        
+            <div class="form-outline">
+              <label class="form-label" for="form8Example2"> Alt Home Contact</label>
+              <input type="text" id="form8Example2" class="form-control border border-dark " name="cont2" [(ngModel)] ="studDTO.parentNumber2"/>
+              
+            </div>
+          </div>
+      </div>
+
+      <div class="row mb-2 pt-3">
+        <div class="col">
+          <!-- Name input -->
+          <div data-mdb-input-init class="form-outline">
+            <label class="form-label" for="form8Example1"> Admission Type</label>
+            <input type="text" name="adm" id="formadmtype" class="form-control border border-dark" [(ngModel)] ="studDTO.admType" />
+            
+          </div>
+        </div>
+        <div class="col">
+        
+          <div class="form-outline">
+            <label class="form-label" for="form8Example2"> Previous School</label>
+            <input type="text" id="form8Example2" name="prevschool" class="form-control border border-dark" [(ngModel)] ="studDTO.prevSchool" />
+            
+          </div>
+        </div>
+        <div class="col " style="margin-top: 1.8em;">                         
+            <button type="submit" class="btn btn-primary w-50 btn-block"> Add </button>            
+            
+          </div>
+      </div>
+
+  
+
+    </form> 
+      
+    </div>
+    
+    
+    </div>
+    </main>
+    
+
+

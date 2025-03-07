@@ -1,0 +1,76 @@
+<main class="d-flex mt-3" >
+    
+<div class="container ms-4 mt-4 " >
+<div class=" py-1 bg-secondary mb-1 mt-4 ">
+    <h5 class="mb-0 text-center text-uppercase "><strong> Add or Edit School Grading System  </strong></h5>
+</div>
+
+
+<div class="card" >
+<!-- Name input -->
+ <form #gradeForm = "ngForm" (ngSubmit)="onSubmit(gradeForm)">
+ <div class="row px-2">
+  <div data-mdb-input-init class="col form-outline mt-2 mb-3">
+    <label class="form-label" for="form7Example1">From </label>
+    <input type="text" id="form7Example1" [(ngModel)] = "grade.fromMarks" name="lower_limit" class="form-control border border-dark" />    
+  </div>
+  <div data-mdb-input-init class="col form-outline mt-2 mb-3">
+    <label class="form-label" for="form7Example1"> To </label>
+    <input type="text" id="form7Example1" class="form-control border border-dark " [(ngModel)] = "grade.toMarks" name="upper_limit"  />    
+  </div>
+  <div data-mdb-input-init class="col form-outline mt-2 mb-3">
+    <label class="form-label" for="form7Example1">Grade</label>
+    <input type="text" id="form7Example1" class="form-control border border-dark " [(ngModel)] = "grade.gradeValue" name="grade"  />    
+  </div>
+  <div data-mdb-input-init class="col form-outline mt-2 mb-3">
+    <label class="form-label" for="form7Example1"> Points</label>
+    <input type="text" id="form7Example1" class="form-control border border-dark " [(ngModel)] = "grade.points" name="points"  />    
+  </div>
+  <div data-mdb-input-init class="col form-outline mt-2 mb-3 ">
+    <button type="submit" class="btn btn-primary" style="margin-top: 2rem;" data-mdb-ripple-init> Add </button>   
+  </div>
+
+</div>
+</form>
+
+
+<div class=" py-1 bg-secondary mt-1 ">
+    <h5 class="text-center text-uppercase"><strong> The School Grading System </strong></h5>
+</div>
+<div class="mt-1">
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Grade </th>
+            <th scope="col">Range </th>
+            <th scope="col"> Points </th>
+            <th scope="col"> Actions </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let g of grades ; let i = index">
+            <td> {{i + 1 }}</td>
+            <td>{{ g.gradeValue}}</td>
+            <td>{{g.fromMarks}} - {{g.toMarks}} </td>
+            <td>{{g.points}}</td>
+            <td>
+              
+              <button type="button" class="btn btn-primary btn-sm mx-1"> Edit </button>
+              <button type="button" class="btn btn-danger btn-sm"> Delete </button>
+
+            </td>
+
+          </tr>
+          
+        </tbody>
+      </table>
+</div>
+
+
+  
+ 
+
+</div>
+</div>
+</main>

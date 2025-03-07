@@ -1,0 +1,65 @@
+<main class="d-flex mt-3" >
+    
+  <div class="container ms-4 mt-4 " >
+  <div class=" py-1 bg-secondary mb-1 mt-4 ">
+      <h5 class="mb-0 text-center"><strong> Add or Edit School Subjects  </strong></h5>
+  </div>
+  <div >
+  <div class="card" >
+   <form #subjectForm = "ngForm" (ngSubmit)="onSubmit(subjectForm)">
+  <div class="row ms-1">
+  <div data-mdb-input-init class="col form-outline mt-2 mb-3">
+      <label class="form-label" for="form7Example1">  Subject Code </label>
+      <input type="text" id="form7Example1" class="form-control border border-dark " name="sub_code" [(ngModel)]="subject.subjectCode"  />  
+    </div> 
+
+    <div data-mdb-input-init class="col form-outline mt-2 mb-3">
+      <label class="form-label" for="form7Example1">  Subject Name </label>
+      <input type="text" id="form7Example1" class="form-control border border-dark" name="sub_name" [(ngModel)]="subject.subjectName"  />  
+    </div> 
+    
+    <div data-mdb-input-init class="col form-outline mt-2 mb-3 ">
+      <button type="submit" class="btn btn-primary" style="margin-top: 2rem;" data-mdb-ripple-init> Add </button>   
+    </div>
+  
+  </div>
+</form>
+</div>
+
+  <div class=" py-1 bg-secondary mt-1 ">
+      <h5 class="text-center"><strong> Subjects Offered in School  </strong></h5>
+  </div>
+  <div class="mt-1">
+      <table class="table table-striped ">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col"> Subject Code  </th>
+              <th scope="col"> Suject Name</th>
+              <th scope="col"> Actions </th>              
+            </tr >
+          </thead>
+          <tbody>
+
+          <tr  class="text-uppercase" *ngFor="let sub of subjects; let i = index">
+            <td>{{ i + 1}}</td> 
+            <td>{{sub.subjectCode}}</td> 
+            <td>{{sub.subjectName}}</td> 
+            <td>
+              <button type="button" class="btn btn-primary btn-sm mx-1"> Edit </button>
+              <button type="button" class="btn btn-danger btn-sm"> Remove </button>  
+
+            </td>  
+          </tr>
+            
+          </tbody>
+        </table>
+  </div>
+  
+  
+    
+   
+  
+  </div>
+  </div>
+  </main>

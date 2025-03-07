@@ -1,0 +1,61 @@
+    <main class="d-flex mt-3" >
+    
+      <div class="container ms-4 mt-4 " >
+      <div class=" py-1 bg-secondary mb-1 mt-4 ">
+          <h5 class="text-center"><strong> Add or Edit School Roles  </strong></h5>
+      </div>
+      <div class="card">        
+        <form #roleForm = "ngForm" (ngSubmit)="onSubmit(roleForm)"  >
+          <div class="row my-1 mt-1 ">
+          <div class="col "> 
+            <div class="form-group row d-flex">
+          <label class="form-label col-sm-2 col-form-label ms-auto " for="form7Example1" >  Role </label>
+          <div class="col-sm-10">
+          <input [(ngModel)] = "role.roleName" name="rolename"  type="text" id="form7Example1" class="form-control border border-dark " />  
+        </div>
+        </div>
+        </div>  
+        
+        <div class="col ">
+          <button type="submit" class="btn btn-primary"  > Add </button>   
+        </div>
+      </div>
+        </form>
+        </div>
+      
+      <div class=" py-1 bg-secondary mt-1 ">
+          <h5 class="text-center"><strong> Roles   </strong></h5>
+      </div>
+      <div class="mt-1 ">
+          <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>                 
+                  <th scope="col"> Role Name  </th>
+                  <th scope="col">  Action </th>                 
+                </tr>
+
+              </thead>
+              
+              <tbody >
+             <tr *ngFor="let r of roles; let i = index " >
+                <td>{{i+1}}</td>
+                <td>{{r.roleName}}</td>
+                <td>
+                  <button type="button" class="btn btn-primary px-2 mx-1"> Edit </button>
+                  <button type="button " class="btn btn-danger mx-1" > Delete </button>     
+                </td>
+                </tr>
+                
+              </tbody>
+            </table>
+      </div>      
+      
+      </div>    
+      </main>
+      
+  
+  
+    
+
+

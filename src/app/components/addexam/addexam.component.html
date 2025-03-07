@@ -1,0 +1,93 @@
+<main class="d-flex mt-3" >
+    
+    <div class="container ms-4 mt-4 " >
+    <div class=" py-1 bg-secondary mt-4 ">
+        <h5 class="text-center"><strong> Add an Exam  </strong></h5>
+    </div>
+    <div class="card " >
+    <!-- Name input -->
+
+    <form #examForm = "ngForm" (ngSubmit)="onSubmit(examForm)">
+    <div class="row px-3">
+    <div data-mdb-input-init class="col form-outline mt-1 mb-2">
+        <label class="form-label" for="form7Example1"> Year</label>
+        <input type="text" id="form7Example1" class="form-control border border-dark" [(ngModel)] = "examdto.examYear" name="year" />    
+      </div>
+      <div data-mdb-input-init class="col form-outline mt-1 mb-2">
+        <label class="form-label" for="form7Example1"> Term </label>
+        <select class="form-control border border-dark" name="term" [(ngModel)] = "examdto.examTerm" >
+          <option disabled > Select An Option  </option>
+          <option value="Term One"> Term One </option>
+          <option value="Term Two"> Term Two </option>
+          <option value="Term Three"> Term Three </option>
+                        
+        </select> 
+      </div>
+      <div data-mdb-input-init class="col form-outline mt-1 mb-2">
+        <label class="form-label" for="form7Example1">Exam Name</label>
+        <input type="text" id="form7Example1" class="form-control border border-dark" [(ngModel)] = "examdto.examName"  name="examname" />    
+      </div>
+
+      <div data-mdb-input-init class="col form-outline mt-1 mb-2">
+        <label class="form-label" for="form7Example1"> Beginning Date</label>
+        <input type="date" id="form7Example1" class="form-control border border-dark" [(ngModel)] = "examdto.beginDate" name="fromdate" />    
+      </div>
+    
+      <div data-mdb-input-init class="col form-outline mt-1 mb-2">
+        <label class="form-label" for="form7Example1">Submit By  </label>
+        <input type="date" id="form7Example1" class="form-control border border-dark" name="sumitdate" [(ngModel)] = "examdto.submissionDate" />    
+      </div>
+      <div data-mdb-input-init class="col form-outline mt-1 mb-3 ">
+        <button type="submit" class="btn btn-primary btn-sm" style="margin-top: 2rem;" > Add </button>   
+      </div>     
+    
+    </div>
+  </form>
+
+
+   
+    <div class=" py-1 bg-secondary mt-1">
+        <h5 class="text-center"><strong> All exams Done Exams a Given Year   </strong></h5>
+    </div>   
+    <div class="mt-1">
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>                
+                <th scope="col"> Exam Name  </th>
+                <th scope="col"> Start Date </th>
+                <th scope="col"> Submission Date  </th>
+                <th scope="col"> Status  </th>
+                <th scope="col"> Action  </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let exm of exams; let  i = index " >
+                <td>{{i + 1 }}</td>
+                <td> {{exm.examTerm}}  {{exm.examName}}  {{exm.examYear}} </td>
+                <td> {{exm.beginDate}} </td>
+                <td> {{exm.submissionDate}} </td>
+                <td *ngIf="exm.active" class="text-success"> Active</td>
+                <td *ngIf="!exm.active" class="text-danger" > Inactive</td>
+                <td>
+
+                  <button  *ngIf="!exm.active" type="button" class="btn btn-primary btn-sm mx-1"> Activate </button>
+                  <button *ngIf="exm.active"  type="button" class="btn btn-primary btn-sm mx-1"> Inactivate </button>
+                  <button type="button" class="btn btn-danger btn-sm"> Delete </button>
+                </td>
+                
+
+              </tr>
+              
+            </tbody>
+          </table>
+    </div>
+    
+    
+      
+     
+    
+    </div>
+    </div>
+    </main>
+    

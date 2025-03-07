@@ -1,0 +1,146 @@
+<main class="d-flex mt-3" >
+    
+    <div class="container ms-4 mt-4 " >
+    <div class=" py-1 bg-secondary mb-1 mt-4 ">
+        <h5 class="text-center"><strong> Add a School Human Resource  </strong></h5>
+    </div>
+    <div class="card" >
+      <form #workerForm = "ngForm" (ngSubmit)="onSubmit(workerForm)">
+        <p class="text-success" *ngIf="message"> {{message}} </p>
+        <p class="text-danger" *ngIf="error"> {{error}} </p>
+
+    <div class="my-1 py-3" >  
+        <div class="row mb-2 px-1">
+        <div class="col">
+          <!-- Name input -->
+          <div data-mdb-input-init class="form-outline">
+            <label class="form-label" for="form8Example1">Id Number</label>
+            <input type="text" id="form8Example1 " class="form-control border border-dark" name="idnumber" [(ngModel)]="worker.nationalId"  />
+            
+          </div>
+        </div>
+        <div class="col">
+        
+          <div class="form-outline">
+            <label class="form-label" for="form8Example2">First Name</label>
+            <input type="text" id="form8Example2" class="form-control border border-dark" name="fname" [(ngModel)]="worker.firstName" />
+            
+          </div>
+        </div>
+        <div class="col">
+        
+          <div class="form-outline">
+            <label class="form-label" for="form8Example2">Last Name</label>
+            <input type="text" id="form8Example2" class="form-control border border-dark" name="lastName" [(ngModel)]="worker.lastName" />
+            
+          </div>
+        </div>
+      </div>   
+      
+      <div class="row pt-2 px-1">
+        <div class="col">
+        
+          <div class="form-outline">
+            <label class="form-label" for="form8Example2"> Employee No </label>
+            <input type="text" id="form8Example2" class="form-control border border-dark" name="empNo" [(ngModel)]="worker.empNo" />
+            
+          </div>
+        </div>
+        <div class="col">
+          <!-- Name input -->
+          <div class="form-outline">
+            <label class="form-label" for="form8Example3">Job Title</label>
+            <input data-mdb-select-init class="form-control border border-dark" name="role" [(ngModel)]="worker.role" />      
+          
+          </div>
+        </div>
+      
+        <div class="col">
+          <!-- Email input -->
+          <div data-mdb-input-init class="form-outline">
+            <label class="form-label" for="form8Example5"> Date of Admission </label>
+            <input type="date" id="form8Example5" class="form-control border border-dark" name="doa" [(ngModel)]="worker.admDate" />
+            
+          </div>
+        </div>
+      </div>  
+      
+      <div class="row mb-2 pt-3 px-1">
+        <div class="col">
+          <!-- Name input -->
+          <div data-mdb-input-init class="form-outline">
+            <label class="form-label" for="form8Example1"> Gender </label>
+            <select data-mdb-select-init class="form-control border border-dark" name="Gender" [(ngModel)]="worker.gender">
+                <option value="Male">Male </option>
+                <option value="Female"> Female </option>                
+              </select>
+            
+          </div>
+        </div>
+        <div class="col">
+        
+          <div class="form-outline">
+            <label class="form-label" for="form8Example2">Date Of Birth</label>
+            <input type="date" id="form8Example2" class="form-control border border-dark" name="dateOfBirth" [(ngModel)]="worker.dateOfBirth" />
+            
+          </div>
+        </div>
+        <div class="col">
+            <!-- Name input -->
+            <div data-mdb-input-init class="form-outline">
+              <label class="form-label" for="form8Example1"> Email </label>
+              <input type="Email" id="form8Example2" class="form-control border border-dark" name="Email" [(ngModel)]="worker.email" />
+              
+            </div>
+          </div>
+        
+      </div>
+
+      <div class="row mb-2 pt-3 px-1">
+        <div class="col">
+          <!-- Name input -->
+          <div data-mdb-input-init class="form-outline">
+            <label class="form-label" for="form8Example1"> Home Address</label>
+            <input type="text" id="form8Example2" class="form-control border border-dark" name="homeAddress" [(ngModel)]="worker.homeAddress" />
+            
+          </div>
+        </div>
+        <div class="col">
+        
+          <div class="form-outline">
+            <label class="form-label" for="form8Example2">Contacts</label>
+            <input type="text" id="form8Example2" class="form-control border border-dark"  name="Contact" [(ngModel)]="worker.mainContact" />
+            
+          </div>
+        </div>
+        <div class="col">
+        
+            <div class="form-outline">
+              <label class="form-label" for="form8Example2"> Alt Home Contact</label>
+              <input type="text" id="form8Example2" class="form-control border border-dark" name="otherContact" [(ngModel)]="worker.otherContact" />
+              
+            </div>
+          </div>
+      </div>      
+       
+        <div class="col " style="margin-top: 1.8em;">                         
+            <button  type="submit" class="btn btn-primary w-50 btn-block"> Add </button>            
+            
+          </div>
+      </div>
+    </form>
+
+    </div>
+
+  
+
+
+      
+    </div>
+    
+    
+    </main>
+    
+
+
+

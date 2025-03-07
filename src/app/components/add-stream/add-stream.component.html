@@ -1,0 +1,65 @@
+<main class="d-flex mt-3" >
+    
+    <div class="container ms-4 mt-4 " >
+    <div class=" py-1 bg-secondary mb-1 mt-4 ">
+        <h5 class="mb-0 text-center text-uppercase" ><strong> Add or Edit School Streams  </strong></h5>
+    </div>
+    <div >    
+    <div class="card">
+    <form #streamForm = "ngForm" (ngSubmit)="onSubmit(streamForm)">
+    <div class="row ms-1">
+    <div class="col form-outline mt-2 mb-3">
+        <label class="form-label" for="form7Example1"  >  Class Name </label>
+        <select  class="form-control border border-dark " name="class_select" [(ngModel)] ="stream.level.levelId" name="class_name">           
+           <option *ngFor="let cls of classes" value={{cls.levelId}} > {{cls.levelName}}</option>
+          </select>
+      </div> 
+      <div class="col form-outline mt-2 mb-3">
+        <label class="form-label" for="form7Example1">  Stream Name </label>
+        <input type="text" id="form7Example1" class="form-control border border-dark " [(ngModel)]="stream.stream_name" name="stream" />  
+      </div> 
+      
+      <div  class="col form-outline mt-2 mb-3 ">
+        <button type="submit" class="btn btn-primary" style="margin-top: 2rem;" > Add </button>   
+      </div>
+    
+    </div>
+  </form>
+</div>
+
+    <div class=" py-1 bg-secondary mt-1 ">
+        <h5 class="text-center text-uppercase"><strong> School Streams  </strong></h5>
+    </div>
+    <div class="mt-1">
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col"> Class </th>
+                <th scope="col"> Stream Name  </th>
+                <th scope="col">Actions</th>                
+              </tr>
+            </thead>
+            <tbody class="text-uppercase" >
+              <tr *ngFor="let strm of streams ; let i = index">
+                <td>{{i+ 1}}</td>
+                <td>{{strm.level.levelName}}</td>
+                <td>{{strm.stream_name}}</td>
+                <td>
+
+                  <button type="button" class="btn btn-primary btn-sm mx-1"> Edit </button>
+                  <button type="button" class="btn btn-danger btn-sm"> Remove </button>
+
+                </td>
+
+              </tr>
+              
+            </tbody>
+          </table>
+    </div>
+        
+    </div>
+    </div>
+    </main>
+    
+

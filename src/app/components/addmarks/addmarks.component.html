@@ -1,0 +1,83 @@
+<main class="d-flex mt-3" >
+    
+    <div class="container ms-4 mt-4 " >
+    <div class=" py-1 bg-secondary mt-4 ">
+        <h5 class=" mb-0 text-center"><strong> Add Student Grades  </strong></h5>
+    </div>
+    <div class=" card mt-1" >
+    <!-- Name input -->
+    <form #marksForm = "ngForm" (ngSubmit)="onSubmit(marksForm)">
+     <div class="row">
+    <div data-mdb-input-init class="col form-outline mt-1 mb-1">
+        <label class="form-label" for="form7Example1"> Exam Name </label>
+        <select  class="form-select border border-dark" name="class_select" [(ngModel)]="marksdto.exam" >            
+          <option  *ngFor="let exms of exams; let i = index" value={{exms.examId}}>{{exms.examTerm}} {{exms.examName}}  </option>
+          </select>  
+      </div>
+      <div data-mdb-input-init class="col form-outline mt-1 mb-1">
+        <label class="form-label" for="form7Example1"> Form </label>
+        <select  class="form-select border border-dark" name="class_select" [(ngModel)]="level.levelName" (change)="onSelectChange($event)">           
+           <option  *ngFor="let lvl of levels; let i = index" value={{lvl.levelId}}> {{lvl.levelName}} </option>
+          </select>  
+      </div>
+      <div data-mdb-input-init class="col form-outline mt-1 mb-1">
+        <label class="form-label" for="form7Example1"> Stream </label>
+        <select  class="form-select border border-dark " name="levelstream" [(ngModel)]="stream.stream_name" >
+          <option  class="text-uppercase" *ngFor="let strm of streams; let i = index" value={{strm.stream_id}}> {{strm.stream_name}} </option> 
+           
+          </select>   
+      </div>
+       <div data-mdb-input-init class="col form-outline mt-1 mb-1">
+        <label class="form-label" for="form7Example1"> Subject  </label>
+        <select  class="form-select border border-dark" name="subject" [(ngModel)]="marksdto.subject" >
+           <option *ngFor="let subj of subjects ; let i = index " value={{subj.subjectCode}}> {{subj.subjectName}}</option> 
+           
+          </select>   
+      </div>
+      <div data-mdb-input-init class="col form-outline mt-1 mb-1">
+        <button type="submit" class="btn btn-primary" style="margin-top: 2rem;" data-mdb-ripple-init> Filter </button>  
+      </div>   
+    </div>
+
+    </form>
+    
+    <div class="mb-0 bg-secondary  mt-1">
+        <h5 class="text-center"><strong> Add Student Grades  </strong></h5>
+    </div>
+    
+    <div class="mt-1">
+        <table class="table table-striped text-uppercase table-responsive ">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col"> Adm No  </th>
+                <th scope="col"> Student Name  </th>
+                <th scope="col"  > Marks  </th>
+                <th scope="col"> Grade </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let student of students; let i = index"  > 
+                <td>{{i +1}}</td>
+                <td>{{ student.studentId}}</td>
+                <td>{{ student.firstName}} {{student.lastName}}</td>
+                <td>
+                  <input type="text" id="form7Example1" class="w-25 " [(ngModel)]="student.marks" (change)="addmarksandGrade(student)"  />
+                </td>
+                <td >
+                  <input type="text" id="form7Example1" class="w-25 " [value]="student.grade" disabled />  
+                </td>
+              </tr>
+              
+            </tbody>
+          </table>
+    </div>
+    
+    
+      
+     
+    
+    </div>
+    </div>
+    </main>
+    

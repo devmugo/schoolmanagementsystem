@@ -1,1 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+/* src/styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* src/styles.css or src/styles.scss */
+body { 
+  min-height: 100vh; 
+  
+}
+

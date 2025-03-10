@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { AuthService } from './services/auth/auth.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -20,9 +21,12 @@ export class AppComponent implements OnInit {
       this.isLoginPage = this.router.url === '/login' || this.router.url === '/';
     });
   }
+  private userSubscription: Subscription | undefined;
 
   ngOnInit(){
-    this.username= this.authService.getUserName()
+    this.userSubscription = this.authService.currentUser.subscribe(user => {
+      this.username = user;
+    });   
 
   }
 

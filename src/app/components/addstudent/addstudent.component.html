@@ -43,7 +43,7 @@
           <!-- Name input -->
           <div class="form-outline">
             <label class="form-label" for="form8Example3">Class </label>
-            <select class="form-control border border-dark" name="class" [(ngModel)] ="studDTO.level"  (change)="onSelectChange($event)" >
+            <select class="form-select border border-dark" name="class" [(ngModel)] ="studDTO.level"  (change)="onSelectChange($event)" >
                 <option *ngFor="let cls of classList" value="{{cls.levelId}}">  {{cls.levelName}} </option>
                               
               </select>
@@ -55,7 +55,7 @@
           <!-- Name input -->
           <div data-mdb-input-init class="form-outline">
             <label class="form-label" for="form8Example4"> Stream </label>
-            <select data-mdb-select-init class="form-control border border-dark " name="stream" [(ngModel)] ="studDTO.stream" >
+            <select data-mdb-select-init class="form-select border border-dark " name="stream" [(ngModel)] ="studDTO.stream" >
               <option *ngFor="let strms of streamList" value="{{strms.stream_id}}">  {{strms.stream_name}} </option>
                              
               </select>

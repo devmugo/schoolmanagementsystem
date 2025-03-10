@@ -21,7 +21,7 @@ export class LoginComponent {
     this.authService.login(this.username, this.password).subscribe({
       next: (response) => {
         this.authService.setToken(response.token);               
-        this.router.navigate(['/dashboard']);
+        window.location.href = '/dashboard';
        
         
 

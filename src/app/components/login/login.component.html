@@ -10,16 +10,16 @@
         <p class="text-muted">Faculty Portal</p>
       </div>
       
-      <form>
+      <form (ngSubmit)="onsubmit()"  > 
         <div class="px-2">
         <div class="mb-2">
           <label for="username" class="form-label">Email </label>
-          <input type="email" class="form-control" id="username" placeholder="Enter your Email">
+          <input type="email"  [(ngModel)]="username" class="form-control"  name="email"  id="enail" placeholder="Enter your Email">
         </div>
         
         <div class="mb-3">
           <label for="password" class="form-label">Password</label>
-          <input type="password" class="form-control" id="password" placeholder="Enter your password">
+          <input type="password" [(ngModel)]="password"  name="password"  class="form-control" id="password" placeholder="Enter your password">
         </div>
         
         <div class="mb-3 form-check">
